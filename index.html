@@ -273,10 +273,35 @@
         position: relative;
         z-index: 2;
     }
+    .social-links {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .social-links img {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), filter 0.4s ease;
+            filter: grayscale(20%);
+        }
+
+        .social-links img:hover {
+            transform: scale(1.3) rotate(15deg);
+            filter: grayscale(0%) drop-shadow(0 5px 15px var(--shadow-light));
+        }
+        .social-links img {
+                width: 45px;
+                height: 45px;
+        }
 </style>
 </head>
 <body class="transition-colors duration-700 bg-slate-900 text-slate-200">
 <div id="particles-js"></div>
+<div class="linea"></div>
+<div class="led" id="led"></div>
 
 <header class="fixed top-0 left-0 w-full backdrop-blur-sm bg-black/30 z-50 shadow-md">
     <nav class="max-w-7xl mx-auto flex justify-between items-center p-4 md:px-8">
@@ -304,13 +329,13 @@
         </div>
     </nav>
 </header>
-
+</br >
 <main class="pt-20 max-w-7xl mx-auto px-6 md:px-12 space-y-28">
     <section id="home" class="min-h-[calc(100vh-5rem)] flex flex-col justify-center items-center text-center">
         <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 animate-fade-in" data-translate="homeTitolo">Ciao, sono <span class="text-sky-400 animate-text-glow">Lorenzo Bergamini</span></h1>
         <p class="max-w-xl text-lg md:text-2xl animate-fade-in" style="animation-delay: 1s;" data-translate="homeDescrizione"></p>
     </section>
-
+    </br >
     <section id="progetti" class="space-y-10">
         <h2 class="text-4xl font-bold text-center mb-8" data-translate="progettiTitolo">Progetti</h2>
         <div class="flex flex-wrap justify-center gap-8">
@@ -328,12 +353,12 @@
             </article>
         </div>
     </section>
-
+    </br >
     <section id="about" class="max-w-4xl mx-auto text-center px-4">
         <h2 class="text-4xl font-bold mb-6" data-translate="aboutTitolo">Chi Sono</h2>
         <p class="text-lg leading-relaxed text-justify" data-translate="aboutDescrizione"></p>
     </section>
-
+    </br >
     <section id="skills" class="max-w-4xl mx-auto text-center px-4 py-12">
         <h2 class="text-4xl font-bold mb-8" data-translate="skillsTitle">Le Mie Competenze</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-lg">
@@ -371,24 +396,26 @@
             </div>
         </div>
     </section>
-
+    </br >
     <section id="contatti" class="max-w-4xl mx-auto text-center px-4">
         <h2 class="text-4xl font-bold mb-6" data-translate="contattiTitolo">Contatti</h2>
         <p class="mb-3" data-translate="contattiDescrizione"></p>
-        <ul class="flex flex-wrap gap-6 justify-center">
+        <ul class="social-links flex justify-center space-x-4">
             <li>
+
+                
                 <a href="https://github.com/lorenzobergamini-ops" target="_blank" class="flex items-center gap-2 text-blue-700 dark:text-blue-400">
-                    <img src="github.png" alt="GitHub" class="w-5 h-5" /> <span data-translate="githubLabel">GitHub</span>
+                    <img src="github-icon-logo-png_seeklogo-503247.png" alt="GitHub" class="w-5 h-5" />
                 </a>
             </li>
             <li>
                 <a href="https://instagram.com/lorenzo.bergamini" target="_blank" class="flex items-center gap-2 text-blue-700 dark:text-blue-400">
-                    <img src="instagram.png" alt="Instagram" class="w-5 h-5" /> <span data-translate="instagramLabel">Instagram</span>
+                    <img src="instagram.png" alt="Instagram" class="w-5 h-5" />
                 </a>
             </li>
             <li>
                 <a href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRmTpKDCMwXHBTqgvWhgjFsRGZPHZSsGpVTVmCGtttXbZnrvCGWdRFlFLSZhPTwwJCGdgWv" target="_blank" class="flex items-center gap-2 text-blue-700 dark:text-blue-400">
-                    <img src="email.png" alt="Email" class="w-5 h-5" /> <span data-translate="emailLabel">Gmail</span>
+                    <img src="E-Mail-Subscribe-PNG-Photo.png" alt="Email" class="w-5 h-5" /> 
                 </a>
             </li>
         </ul>
@@ -425,10 +452,10 @@
         <footer class="mt-4">&copy; 2025 Lorenzo Bergamini. Tutti i diritti riservati.</footer>
     </section>
 
-<a href="#home" class="fixed bottom-6 right-6 bg-blue-400 text-white px-4 py-2 rounded-full shadow-lg font-bold" data-translate="backToTop">Torna all'inizio</a></main>
-
+<a href="#home" class="fixed bottom-6 right-6 bg-blue-400 text-white px-4 py-2 rounded-full shadow-lg font-bold z-50" style="z-index: 9999;" data-translate="backToTop">Torna all'inizio</a>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
+
     const btnTema = document.getElementById('btn-tema');
     const iconTema = document.getElementById('icon-tema');
     const htmlRoot = document.documentElement;
@@ -699,10 +726,10 @@
             }
         });
 
-        document.querySelector('a[href*="github.com"] span').textContent = testi[lang].githubLabel;
+        /*document.querySelector('a[href*="github.com"] span').textContent = testi[lang].githubLabel;
         document.querySelector('a[href*="instagram.com"] span').textContent = testi[lang].instagramLabel;
         document.querySelector('a[href*="mail.google.com"] span').textContent = testi[lang].emailLabel;
-        
+        */
         const linkedinLink = document.querySelector('a[href*="linkedin.com"] span');
         if (linkedinLink) {
              linkedinLink.textContent = testi[lang].linkedinLabel;
@@ -864,6 +891,19 @@
             observer.observe(skillsSection);
         }
     });
+    const feedbackForm = document.getElementById('feedback-form');
+    if (feedbackForm) {
+    feedbackForm.addEventListener('submit', function(e) {
+      var recaptcha = grecaptcha.getResponse();
+      if (!recaptcha) {
+        e.preventDefault();
+        alert('Per favore completa il reCAPTCHA!');
+        return false;
+      }
+    });
+  }
+
+  
 </script>
 </body>
 </html>
